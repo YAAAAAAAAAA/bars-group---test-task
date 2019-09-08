@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Select sith</title>
+</head>
+<body>
+    <h1>Свободные рекруты</h1>
+    <form method="post" enctype="multipart/form-data" action={% url "core-polls:recruit_show_recruit_answers" %}>
+        {% csrf_token %}
+        <select name="selected_recruit" required>
+            {% for recr in recruits %}
+                <option value={{ recr.1 }}>{{ recr.0 }} , {{ recr.1 }} , {{ recr.2 }}</option>
+            {% endfor %}
+        </select>
+        <input id="select_recruit"  value="Посмотреть ответы" type="submit">
+    </form>
+</body>
+</html>

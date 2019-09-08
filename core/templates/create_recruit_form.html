@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Recruit</title>
+</head>
+<body>
+    <h1>Форма добавления рекрута</h1>
+    <form method="post" enctype="multipart/form-data" action={% url "core-polls:recruit_get_test_trial" %}>
+        {% csrf_token %}
+        {{ form }}
+        <input id="recruit-submit" type="submit">
+    </form>
+</body>
+</html>

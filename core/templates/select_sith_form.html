@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Select sith</title>
+</head>
+<body>
+    <h1>Ситхи</h1>
+    <form method="post" enctype="multipart/form-data" action={% url "core-polls:recruit_sith_select_recruit" %}>
+        <h2>Все ситхи</h2>
+        {% csrf_token %}
+        <select name="selected_sith" size="10" required>
+            {% for sith in siths %}
+                <option value={{ sith.0 }}>{{ sith.1 }} с планеты {{ sith.2 }} / {{ sith.3 }} рук тени</option>
+            {% endfor %}
+        </select>
+        <input id="select_sith"  type="submit">
+    </form>
+    <form method="post" enctype="multipart/form-data" action="sith_select_recruit/">
+        <h2>Ситхи с более чем одной рукой тени</h2>
+        {% csrf_token %}
+        <select name="selected_sith" size="0" required>
+            {% for sith in more_than_one_siths %}
+                <option value={{ sith.0 }}>{{ sith.1 }} с планеты {{ sith.2 }} / количество рук тени: {{ sith.3 }} </option>
+            {% endfor %}
+        </select>
+    </form>
+</body>
+</html>

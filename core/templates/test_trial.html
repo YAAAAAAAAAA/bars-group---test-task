@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Test trial</title>
+</head>
+<body>
+    <h1>Тестовое задание</h1>
+     <form name='qqq' method="post" enctype="multipart/form-data" action={% url "core-polls:recruit_post_answers" %}>
+        {% csrf_token %}
+         <h2>
+             <p>Имя: {{ name }}</p>
+         </h2>
+          <h2>
+              <p>Email: {{ email }}</p>
+         </h2>
+         {% for quest in quests %}
+                 <p><b>{{ quest.1 }}</b></p>
+                 <p><input name={{ quest.0 }} type="radio" value=True required> True</p>
+                 <p><input name={{ quest.0 }} type="radio" value=False checked required> False</p>
+         {% endfor %}
+         <input id="recruit-post-answer" type="submit">
+    </form>
+</body>
+</html>

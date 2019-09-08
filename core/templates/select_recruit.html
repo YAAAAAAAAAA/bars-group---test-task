@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test_trial_done</title>
+</head>
+<body>
+<h1>Тестовое задание выполнено</h1>
+     <form method="post" action={% url "core-polls:recruit_make_hand_shadows" %}>
+        {% csrf_token %}
+         <h2>
+             Имя: {{ name }}
+         </h2>
+          <h2>
+             Email: {{ email }}
+         </h2>
+          <p>{{ count }}</p>
+         <div class="qqq">
+         {% for pair in pairs_q_a %}
+                 <p><b>{{ pair.0 }}</b></p>
+                 <p4>Ответ: {{ pair.1 }}</p4>
+         {% endfor %}
+         </div>
+    <input type="submit" value="Сделать рукой тени">
+    </form>
+</body>
+</html>
